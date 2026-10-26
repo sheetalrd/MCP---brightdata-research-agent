@@ -1,0 +1,6 @@
+
+mcp
+python-dotenv
+openai
+httpx
+streamlit
