@@ -1,0 +1,16 @@
+
+FROM python:3.13-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app.py .
+COPY research_agent.py .
+COPY search_web.py .
+
+ENV PORT=80
+EXPOSE 80
+
+CMD ["sh", "-c", "streamlit run app.py --server.address=0.0.0.0 --server.port=${PORT:-80} --server.headless=true"]
